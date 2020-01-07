@@ -1,6 +1,7 @@
 FROM alpine:3.10
 
-RUN apt-get update && apt-get install git -y
+RUN apk add --update \
+    git
 
 COPY entrypoint.sh /entrypoint.sh
 
