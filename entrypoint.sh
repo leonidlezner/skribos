@@ -10,4 +10,8 @@ echo "Output dir: $1 ${GITHUB_REF:11}"
 
 mkdir -p $BRANCH_DIR
 
-cp ./src "$BRANCH_DIR"
+cp -r ./src "$BRANCH_DIR"
+
+list=`git tag --list 'v*'`
+
+echo $list > $BUILD_DIR/versions.txt
