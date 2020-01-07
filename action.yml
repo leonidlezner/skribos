@@ -1,16 +1,13 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Skribos Action'
+description: 'Build a lernOS Guide usung Skribos'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  build_dir:
+    description: 'Build Directory'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    default: 'dist'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.build_dir }}
