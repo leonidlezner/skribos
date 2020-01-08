@@ -3,9 +3,12 @@
 BUILD_DIR=$1
 GH_PAT=$2
 BRANCH_DIR="$BUILD_DIR/${GITHUB_REF:11}"
+SOURCE_DIR="src"
+BOOK="lernOS-for-You-Guide-de.md"
+METADATA="metadata.yaml"
 
 mkdir -p $BRANCH_DIR
 
-pandoc src/metadata.yaml -s -o dist/lernOS-for-You-Guide-de.docx src/lernOS-for-You-Guide-de.md
+pandoc $SOURCE_DIR/$METADATA -s -o $BRANCH_DIR/lernOS-for-You-Guide-de.docx $SOURCE_DIR/$BOOK
 
 #git tag --list 'v*' > $BUILD_DIR/versions.txt
