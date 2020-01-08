@@ -6,13 +6,8 @@ inputs:
     description: 'Build Directory'
     required: true
     default: 'dist'
-  gh_pat:
-    description: 'Github private access token'
-    required: true
-    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.build_dir }}
-    - ${{ inputs.gh_pat }}
