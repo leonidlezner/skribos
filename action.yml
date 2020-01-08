@@ -6,8 +6,7 @@ inputs:
     description: 'Build Directory'
     required: true
     default: 'dist'
-inputs:
-  book:
+  recipe:
     description: 'Skribos Recipe'
     required: true
     default: 'skribos.yml'
@@ -16,4 +15,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.build_dir }}
-    - ${{ inputs.book }}
+    - ${{ inputs.recipe }}
