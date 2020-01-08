@@ -6,8 +6,14 @@ inputs:
     description: 'Build Directory'
     required: true
     default: 'dist'
+inputs:
+  book:
+    description: 'Build Directory'
+    required: true
+    default: 'book.yml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.build_dir }}
+    - ${{ inputs.book }}
