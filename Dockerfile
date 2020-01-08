@@ -1,7 +1,4 @@
-FROM alpine:3.10
-
-RUN apk add --update \
-    git
+FROM pandoc/latex
 
 COPY entrypoint.sh /entrypoint.sh
 
