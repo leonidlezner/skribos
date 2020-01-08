@@ -8,9 +8,9 @@ inputs:
     default: 'dist'
 inputs:
   book:
-    description: 'Build Directory'
+    description: 'Skribos Recipe'
     required: true
-    default: 'book.yml'
+    default: 'skribos.yml'
 runs:
   using: 'docker'
   image: 'Dockerfile'
