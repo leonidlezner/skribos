@@ -12,8 +12,4 @@ mkdir -p $BRANCH_DIR
 
 cp -r ./src "$BRANCH_DIR"
 
-list=`git tag --list 'v*'`
-
-echo $list > $BUILD_DIR/versions.txt
-
-echo $GH_PAT
+git tag --list 'v*' > $BUILD_DIR/versions.txt
