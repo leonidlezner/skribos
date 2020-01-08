@@ -6,6 +6,8 @@ BUILD_DIR=$1
 GH_PAT=$2
 BRANCH_DIR="$BUILD_DIR/${GITHUB_REF:11}"
 
+echo "https://$GH_PAT@github.com/$GITHUB_REPOSITORY"
+
 git remote add origin https://$GH_PAT@github.com/$GITHUB_REPOSITORY
 
 
