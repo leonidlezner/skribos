@@ -9,7 +9,7 @@ METADATA="metadata.yaml"
 
 mkdir -p $BRANCH_DIR
 
-python3 skribos-cli/skribos.py
+python3 /usr/local/skribos-cli/skribos.py
 
 pandoc $SOURCE_DIR/$METADATA -s -o $BRANCH_DIR/lernOS-for-You-Guide-de.docx $SOURCE_DIR/$BOOK
 
