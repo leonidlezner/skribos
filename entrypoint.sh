@@ -9,6 +9,10 @@ METADATA="metadata.yaml"
 
 mkdir -p $BRANCH_DIR
 
+# Update to the latest Skribos CLI
+git -C /usr/local/skribos-cli/ pull origin master
+
+# Run Skribos
 python3 /usr/local/skribos-cli/skribos.py
 
 pandoc $SOURCE_DIR/$METADATA -s -o $BRANCH_DIR/lernOS-for-You-Guide-de.docx $SOURCE_DIR/$BOOK
