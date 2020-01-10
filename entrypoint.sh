@@ -13,7 +13,7 @@ mkdir -p $BRANCH_DIR
 git -C /usr/local/skribos-cli/ pull origin master
 
 # Run Skribos
-python3 /usr/local/skribos-cli/skribos.py
+python3 /usr/local/skribos-cli/skribos.py --recipe skribos.yml
 
 pandoc $SOURCE_DIR/$METADATA -s -o $BRANCH_DIR/lernOS-for-You-Guide-de.docx $SOURCE_DIR/$BOOK
 
