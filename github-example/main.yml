@@ -7,10 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Get branch name
+      run: echo ::set-output name=reference::${GITHUB_REF:11}
+      id: branch
     - name: Run Skribos
       uses: leonidlezner/skribos@master
       with:
-        args: 'dist/${GITHUB_REF:11} skribos.yml'
+        args: dist/${{ steps.branch.outputs.reference }} skribos.yml
     - name: Deploy to Github Pages
       uses: crazy-max/ghaction-github-pages@v1
       with:

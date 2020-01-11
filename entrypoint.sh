@@ -1,9 +1,11 @@
 #!/bin/sh -l
 
+CONTAINER_VERSION=$(cat /VERSION)
 BUILD_DIR=${1:-dist}
 RECIPE=${2:-skribos.yml}
 ENV=${3:-server}
 
+echo "Skribos Container $CONTAINER_VERSION"
 echo "Output: $BUILD_DIR, Recipe: $RECIPE, Environment: $ENV"
 
 mkdir -p $BUILD_DIR
@@ -14,6 +16,7 @@ then
 else
     SUFFIX=''
     echo "Updating Skribos CLI"
+    git -C /usr/local/skribos-cli/ fetch --tags
     git -C /usr/local/skribos-cli/ pull origin master    
 fi
 
