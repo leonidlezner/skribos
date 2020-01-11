@@ -1,12 +1,21 @@
 #!/bin/sh -l
 
-BUILD_DIR=$1
-GH_PAT=$2
-BRANCH_DIR="$BUILD_DIR/${GITHUB_REF:11}"
-mkdir -p $BRANCH_DIR
+BUILD_DIR=${1:-dist}
+RECIPE=${2:-skribos.yml}
+ENV=${3:-server}
 
-# Update to the latest Skribos CLI
-git -C /usr/local/skribos-cli/ pull origin master
+echo "Output: $BUILD_DIR, Recipe: $RECIPE, Environment: $ENV"
+
+mkdir -p $BUILD_DIR
+
+if [ $ENV = "local" ];
+then
+    SUFFIX='--nodownload'
+else
+    SUFFIX=''
+    echo "Updating Skribos CLI"
+    git -C /usr/local/skribos-cli/ pull origin master    
+fi
 
 # Run Skribos
-python3 /usr/local/skribos-cli/skribos.py --recipe skribos.yml --output=$BRANCH_DIR
+python3 /usr/local/skribos-cli/skribos.py --recipe $RECIPE --output $BUILD_DIR $SUFFIX

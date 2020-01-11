@@ -1,0 +1,21 @@
+name: Run Skribos
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Skribos
+      uses: leonidlezner/skribos@master
+      with:
+        args: 'dist/${GITHUB_REF:11} skribos.yml'
+    - name: Deploy to Github Pages
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: gh-pages
+        build_dir: dist
+        keep_history: true
+      env:
+        GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
