@@ -10,10 +10,8 @@ jobs:
     - name: Get branch name
       run: echo ::set-output name=reference::${GITHUB_REF:11}
       id: branch
-    - name: Run Skribos
-      uses: leonidlezner/skribos@master
-      with:
-        args: dist/${{ steps.branch.outputs.reference }} skribos.yml
+    - name: Run Skribos for German version
+      run: docker run --volume "$(pwd):/data" leonidlezner/skribos:latest dist/${{ steps.branch.outputs.reference }} skribos-de.yml
     - name: Deploy to Github Pages
       uses: crazy-max/ghaction-github-pages@v1
       with:
