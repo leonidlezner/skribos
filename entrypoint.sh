@@ -5,6 +5,9 @@ BUILD_DIR=${1:-dist}
 RECIPE=${2:-skribos.yml}
 ENV=${3:-server}
 
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+
 echo "Skribos Container $CONTAINER_VERSION"
 echo "Output: $BUILD_DIR, Recipe: $RECIPE, Environment: $ENV"
 

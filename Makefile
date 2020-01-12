@@ -13,3 +13,5 @@ latest:
 	docker tag leonidlezner/skribos:$(CONTAINER_VERSION) leonidlezner/skribos:latest
 	docker push leonidlezner/skribos:latest
 
+shell:
+	docker run -it --entrypoint "/bin/bash" --volume "$(pwd):/data" leonidlezner/skribos:$(CONTAINER_VERSION)
