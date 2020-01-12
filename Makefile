@@ -5,6 +5,8 @@ build:
 
 publish:
 	docker push leonidlezner/skribos:$(CONTAINER_VERSION)
+	#docker tag leonidlezner/skribos:$(CONTAINER_VERSION) docker.pkg.github.com/leonidlezner/skribos/skribos:latest
+	#docker push docker.pkg.github.com/leonidlezner/skribos/skribos:latest
 
 remove:
 	docker rmi leonidlezner/skribos:$(CONTAINER_VERSION) --force
