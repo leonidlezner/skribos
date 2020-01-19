@@ -1,8 +1,11 @@
-FROM ubuntu
+FROM ubuntu:disco
 
 RUN apt update && apt install -y \ 
       wget git python3-dev python3-pip \ 
-      pandoc imagemagick
+      imagemagick
+      
+RUN wget https://github.com/jgm/pandoc/releases/download/2.9.1.1/pandoc-2.9.1.1-1-amd64.deb && \
+    dpkg -i pandoc-2.9.1.1-1-amd64.deb
 
 RUN export DEBIAN_FRONTEND="noninteractive" && apt install -y tzdata texlive-full
 
